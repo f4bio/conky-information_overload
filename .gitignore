@@ -1,0 +1,144 @@
+###### ################
+##	project related
+### #############
+# see bottom
+
+###### ################
+##	certificates
+### #############
+# *.pem
+# *.srl
+# *.p12
+# *.pks
+# *.crt
+# *.csr
+# *.crl
+# ca-database*
+
+###### ################
+##	system (windows)
+### ##############
+Thumbs.db
+
+###### ################
+##	system (linux)
+### ##############
+*~
+.svn/
+# *.key
+
+###### ################
+##	docker
+### ##############
+.docker
+
+###### ################
+##	vagrant
+### ##############
+.vagrant
+
+###### ################
+##	java
+### ##############
+*.class
+
+###### ################
+##	sass / less
+### ##############
+.sass-cache
+
+###### ################
+##	nodejs / npm
+### ##############
+node_modules/
+lib-cov
+*.seed
+#.env
+
+###### ################
+##	bowerjs
+### #############
+bower_components/
+
+###### ################
+##	sailsjs
+### #############
+.sails
+.waterline
+.rigging
+.tmp
+config/local.js
+assets/vendor
+www/
+
+###### ################
+##	other
+### #############
+*.log*
+.editorconfig
+
+###### ################
+##	system (osx)
+##	thx: http://goo.gl/y4dZq
+### #############
+.DS_Store
+
+###### ################
+##	eclipse
+##	thx: http://goo.gl/y4dZq
+### #############
+.classpath
+.project
+.settings/
+
+###### ################
+##	intellij
+##	thx: http://goo.gl/y4dZq
+### #############
+.idea/
+*.iml
+*.iws
+
+###### ################
+##	maven
+##	thx: http://goo.gl/y4dZq
+### #############
+target/
+
+###### ################
+##	android
+### #############
+proguard_logs/
+
+###### ################
+##	gradle
+### #############
+.gradle
+/local.properties
+/gradle.properties
+/build/*
+
+###### ################
+##	python
+##	thx: http://goo.gl/WR3a3F
+### #############
+__pycache__/
+__init__.py
+*.py[cod]
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+.cache
+
+###### ################
+##	keep keepers
+### #############
+!.gitkeep
+
+###### ################
+##	project related
+### #############
+deploy/
+dist/
+api/hooks/grpc/*.js
+api/hooks/seed-data/*.js
