@@ -1,0 +1,198 @@
+######################
+# - Conky settings - #
+######################
+update_interval 1
+total_run_times 0
+net_avg_samples 1
+cpu_avg_samples 1
+if_up_strictness link
+
+imlib_cache_size 0
+double_buffer yes
+no_buffers yes
+
+format_human_readable yes
+
+#####################
+# - Text settings - #
+#####################
+use_xft yes
+xftfont Hack:size=14
+override_utf8_locale yes
+text_buffer_size 2048
+
+#############################
+# - Window specifications - #
+#############################
+own_window_class Conky
+own_window yes
+own_window_type normal
+own_window_transparent no
+own_window_argb_visual yes
+own_window_argb_value 128
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+border_inner_margin 5
+
+alignment top_right
+gap_x 1920
+gap_y 0
+minimum_size 300 1065
+
+default_bar_size 60 8
+
+#########################
+# - Graphics settings - #
+#########################
+draw_shades no
+
+default_color cccccc
+
+color0 white
+color1 grey
+color2 5C3566
+
+lua_load ~/.lua/scripts/ioc.lua
+
+own_window_colour 000000
+TEXT
+##############
+# - SYSTEM - #
+##############
+${color1}${font Hack:size=10}SYSTEM $stippled_hr${font}${color}
+${goto 30}${color1}${font Hack:size=10}kernel: ${font}${color}\
+${goto 200}${voffset -5}${color0}${font Hack:size=12}${kernel}${font}${color}
+${goto 30}${color1}${font Hack:size=10}uptime: ${font}${color}\
+${goto 200}${voffset -5}${color0}${font Hack:size=12}${uptime}${font}${color}
+###########
+# - CPU - #
+###########
+${font Hack:size=10}CPU $stippled_hr${font}
+${goto 30}${color1}${font Hack:size=10}load: ${font}${color}\
+${goto 100}${voffset -5}${color0}${font Hack:size=12}${cpu cpu0}${font}${color}\
+${offset 2}${color1}${font Hack:size=10}%${font}${color}\
+${goto 200}${voffset -5}${cpugraph 20,120}
+#${goto 200}${voffset -5}${cpubar 5,120}
+# - clock
+${goto 30}${color1}${font Hack:size=10}clock: ${font}${color}\
+${goto 100}${voffset -5}${color0}${font Hack:size=12}${freq cpu0}${font}${color}\
+${offset 2}${color1}${font Hack:size=10}MHz${font}${color}
+#################
+# - PROCESSES - #
+#################
+${font Hack:size=10}PROCESSES $stippled_hr${font}
+# - top
+${goto 30}${color1}${font Hack:size=10}name${font}${color}\
+${goto 120}${voffset -5}${color1}${font Hack:size=10}pid${font}${color}\
+${goto 200}${voffset -5}${color1}${font Hack:size=10}cpu%${font}${color}\
+${goto 280}${voffset -5}${color1}${font Hack:size=10}mem%${font}${color}
+# - top1
+${goto 30}${voffset -5}${color0}${font Hack:size=10}${top name 1}${font}${color}\
+${goto 120}${voffset -5}${color0}${font Hack:size=10}${top pid 1}${font}${color}\
+${goto 180}${voffset -5}${color0}${font Hack:size=10}${top cpu 1}${font}${color}\
+${goto 260}${voffset -5}${color0}${font Hack:size=10}${top mem 1}${font}${color}
+# - top2
+${goto 30}${voffset -5}${color0}${font Hack:size=10}${top name 2}${font}${color}\
+${goto 120}${voffset -5}${color0}${font Hack:size=10}${top pid 2}${font}${color}\
+${goto 180}${voffset -5}${color0}${font Hack:size=10}${top cpu 2}${font}${color}\
+${goto 260}${voffset -5}${color0}${font Hack:size=10}${top mem 2}${font}${color}
+# - top3
+${goto 30}${voffset -5}${color0}${font Hack:size=10}${top name 3}${font}${color}\
+${goto 120}${voffset -5}${color0}${font Hack:size=10}${top pid 3}${font}${color}\
+${goto 180}${voffset -5}${color0}${font Hack:size=10}${top cpu 3}${font}${color}\
+${goto 260}${voffset -5}${color0}${font Hack:size=10}${top mem 3}${font}${color}
+##############
+# - MEMORY - #
+##############
+${font Hack:size=10}MEMORY $stippled_hr${font}
+${goto 30}${color1}${font Hack:size=10}load: ${font}${color}\
+${goto 100}${voffset -5}${color0}${font Hack:size=12}${memperc}${font}${color}\
+${offset 2}${color1}${font Hack:size=10}%${font}${color}\
+${goto 200}${voffset -5}${memgraph 20,120}
+${goto 30}${color1}${font Hack:size=10}free: ${font}${color}\
+${goto 100}${voffset -5}${color0}${font Hack:size=12}${memfree}${font}${color}\
+${goto 190}${voffset -5}${color1}${font Hack:size=10}used: ${font}${color}\
+${voffset -5}${color0}${font Hack:size=12}${mem}${font}${color}
+#############
+# - CLOCK - #
+#############
+${font Hack:size=10}TIME $stippled_hr${font}
+${alignc}${color0}${font Hack:size=40}${time %H:%M:%S}${font}${color}
+${alignr 25}${font Hack:size=12}${time %Y-%m-%d (%a)}${font}
+#################
+# - fs '/' - #
+#################
+${font Hack:size=10}FILESYSTEM $stippled_hr${font}
+${goto 30}${color1}${font Hack:size=10}/ (${fs_size /}) $stippled_hr${font}${color}
+${goto 40}${color1}${font Hack:size=10}load: ${font}${color}\
+${goto 120}${voffset -5}${color0}${font Hack:size=12}${fs_used_perc /}${font}${color}\
+${offset 2}${color1}${font Hack:size=10}%${font}${color}\
+${goto 200}${voffset -5}${fs_bar 10,120 /}
+# - free/used
+${goto 40}${color1}${font Hack:size=10}free: ${font}${color}\
+${goto 120}${voffset -5}${color0}${font Hack:size=12}${fs_free /}${font}${color}\
+${goto 200}${voffset -5}${color1}${font Hack:size=10}used: ${font}${color}\
+${voffset -5}${color0}${font Hack:size=12}${fs_used /}${font}${color}
+# - read/write
+${goto 40}${color1}${font Hack:size=10}read: ${font}${color}\
+${goto 120}${voffset -5}${color0}${font Hack:size=12}${diskio_read /}${font}${color}\
+${goto 200}${voffset -5}${color1}${font Hack:size=10}write: ${font}${color}\
+${voffset -5}${color0}${font Hack:size=12}${diskio_write /}${font}${color}
+#####################
+# - fs '/home' - #
+#####################
+${goto 30}${color1}${font Hack:size=10}/home (${fs_size /home}) $stippled_hr${font}${color}
+${goto 40}${color1}${font Hack:size=10}load: ${font}${color}\
+${goto 120}${voffset -5}${color0}${font Hack:size=12}${fs_used_perc /home}${font}${color}\
+${offset 2}${color1}${font Hack:size=10}%${font}${color}\
+${goto 200}${voffset -5}${fs_bar 10,120 /home}
+# - free/used
+${goto 40}${color1}${font Hack:size=10}free: ${font}${color}\
+${goto 120}${voffset -5}${color0}${font Hack:size=12}${fs_free /home}${font}${color}\
+${goto 200}${voffset -5}${color1}${font Hack:size=10}used: ${font}${color}\
+${voffset -5}${color0}${font Hack:size=12}${fs_used /home}${font}${color}
+# - read/write
+${goto 40}${color1}${font Hack:size=10}read: ${font}${color}\
+${goto 120}${voffset -5}${color0}${font Hack:size=12}${diskio_read /dev/AntergosVG/AntergosHome}${font}${color}\
+${goto 200}${voffset -5}${color1}${font Hack:size=10}write: ${font}${color}\
+${voffset -5}${color0}${font Hack:size=12}${diskio_write /dev/AntergosVG/AntergosHome}${font}${color}
+####################
+# - fs '/mybook' - #
+####################
+${goto 30}${color1}${font Hack:size=10}/mybook (${fs_size /run/media/f4bio/MYBOOK}) $stippled_hr${font}${color}
+${goto 40}${color1}${font Hack:size=10}used: ${font}${color}\
+${goto 120}${voffset -5}${color0}${font Hack:size=12}${fs_used_perc /run/media/f4bio/MYBOOK}%${font}${color}\
+${goto 200}${voffset -5}${fs_bar 10,120 /run/media/f4bio/MYBOOK}
+# - free/used
+${goto 40}${color1}${font Hack:size=10}free: ${font}${color}\
+${goto 120}${voffset -5}${color0}${font Hack:size=12}${fs_free /run/media/f4bio/MYBOOK}${font}${color}\
+${goto 200}${voffset -5}${color1}${font Hack:size=10}used: ${font}${color}\
+${voffset -5}${color0}${font Hack:size=12}${fs_used /run/media/f4bio/MYBOOK}${font}${color}
+# - read/write
+${goto 40}${color1}${font Hack:size=10}read: ${font}${color}\
+${goto 120}${voffset -5}${color0}${font Hack:size=12}${diskio_read /dev/sdf1}${font}${color}\
+${goto 200}${voffset -5}${color1}${font Hack:size=10}write: ${font}${color}\
+${voffset -5}${color0}${font Hack:size=12}${diskio_write /dev/sdf1}${font}${color}
+###############
+# - NETWORK - #
+###############
+${font Hack:size=10}NETWORK $stippled_hr${font}
+# |--ip
+${goto 30}${color1}${font Hack:size=10}local: ${font}${color}\
+${goto 190}${voffset -5}${color0}${font Hack:size=12}${addr wlp5s0}${font}${color}
+${goto 30}${color1}${font Hack:size=10}public: ${font}${color}\
+${goto 190}${voffset -5}${color0}${font Hack:size=12}${curl https://ip.f4b.io/raw}${font}${color}
+${if_up wlp5s0}\
+# |-- signal
+${goto 30}${color1}${font Hack:size=10}signal: ${font}${color}\
+${goto 190}${voffset -5}${color0}${font Hack:size=12}${wireless_link_qual_perc wlp5s0}%${font}${color}
+# |-- down
+${goto 30}${color1}${font Hack:size=10}down: ${font}${color}\
+${goto 100}${voffset -5}${color0}${font Hack:size=12}${totaldown wlp5s0}${font}${color}\
+${goto 190}${voffset -5}${color0}${font Hack:size=12}${downspeed wlp5s0}${font}${color}\
+${offset 2}${color1}${font Hack:size=10}/s${font}${color}
+# |-- up
+${goto 30}${color1}${font Hack:size=10}up: ${font}${color}\
+${goto 100}${voffset -5}${color0}${font Hack:size=12}${totalup wlp5s0}${font}${color}\
+${goto 190}${voffset -5}${color0}${font Hack:size=12}${upspeed wlp5s0}${font}${color}\
+${offset 2}${color1}${font Hack:size=10}/s${font}${color}
+${endif}

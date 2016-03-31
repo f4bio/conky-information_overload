@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=Conky
+GenericName=conky information overload
+Comment=Keep a background eye on your system
+Exec=conky --config $HOME/.conkyrc
+Terminal=false
+Type=Application
+Icon=conky
+Categories=System;
+StartupNotify=false
+Name[en_US]=conky

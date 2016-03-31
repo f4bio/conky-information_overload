@@ -1,0 +1,4 @@
+assets/js/dependencies/sails.io.js
+api/hooks/grpc/*.js
+api/hooks/seed-data/*.js
+views/dist/*
